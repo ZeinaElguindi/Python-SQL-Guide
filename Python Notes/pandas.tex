@@ -1,0 +1,113 @@
+
+
+\section{Series}
+A series is a one-dimensional array. 
+\begin{itemize}
+    \item A series is essentially a column in a spreadsheet
+    \item The series axis is the \textit{index}
+\end{itemize}
+
+
+
+\subsection{Creating a Series}
+
+\begin{center}
+    \textbf{series = pd.Series( data, index, dtype)}
+\end{center}
+
+\begin{center}
+    \begin{tabular}{c|c|c}
+       Argument  & Type & Description  \\
+       \hline
+         data & list / tuple & Data to be displayed within the column.\\
+         index \textit{(optional)}& list / tuple & Index labels. Default: Integer Indexing.\\
+         dtype \textit{(optional)} & data type  & Data type specification. Default: Inferred.
+    \end{tabular}
+\end{center}
+
+\subsection{Accessing Elements in a Series}
+To access an element(s), use the [ ] operator, with the index (type: int) that you would like to access.
+
+
+\begin{center}
+\begin{minipage}{0.45\textwidth}
+        Example 1: \\
+        \\[0.01cm]
+        data = [1,2,3]\\
+        ser = pd.Series(data)\\
+        print(ser[2])\\
+        Output: 3
+\end{minipage}
+\hspace{0.05\textwidth} % Space between the minipages
+\begin{minipage}{0.45\textwidth}
+    Example 2:\\
+    \\[0.01cm]
+    print(ser[:1])\\
+    Output:\\
+    \begin{tabular}{c|c}
+       0  &  1\\
+        1 & 2
+    \end{tabular}
+    
+\end{minipage}
+\end{center}
+
+
+\subsection{Indexing and Selecting Data}
+\begin{center}
+    \begin{tabular}{c|c|c}
+        Operator/Function & Name & Purpose\\
+        \hline
+        [ ] &  Indexing Operator\\
+         .loc[]&  Label Location & Selecting data by index label\\
+         .iloc[] & Integer Location & Selecting data by integer index\\
+    \end{tabular}
+\end{center}
+
+Note: Using series, there are many similarities between these 3. .loc[] uses the index names to select data and is therefore inclusive, while .iloc[] uses index positions, and is therefore end-exclusive.
+
+
+
+
+
+
+\section{DataFrames}
+
+A dataframe is a two-dimensional data structure. The datasets within it are stored in 2 axes, the rows and columns (essentially a table)
+
+
+\subsection{}{Creating a DataFrame}
+\subsubsection{From an aaray}
+\begin{minted}{python}
+    arr = ['Physics', 'Chemistry', 'Biology']
+    df = pd.DataFrame(arr)
+\end{minted}
+
+The output of this would be a table, with one column. Each row represents the different list elements, and the index and column labels represent the row and column headers respectively.
+
+\subsubsection{From a Dictionary}
+
+
+
+
+
+\begin{minted}{python}
+    hi
+\end{minted}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsection{Viewing Data}
+
+\subsection{Selecting Data}

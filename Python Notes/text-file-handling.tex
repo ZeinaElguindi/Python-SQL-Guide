@@ -1,0 +1,115 @@
+\subsection{Preparation}
+\textbf{File Path}\\
+When defining file paths from a location on your computer, you must double your backslashes, as each backslash must be escaped by another.
+\[filepath = 'C:\\Windows\\Users\\John\\word.docx'\]\\
+\textbf{Opening and Closing Files}
+\begin{center}
+    filename.open() or filename.close()\\
+    with open(filename, "x") s.t. x = r(read), w(write), or a(append)
+\end{center}
+If the filename does not exist, the program will create a new and blank file.
+\vspace{0.3cm}
+\textbf{Example File Contents}\\
+In the following sections, I will be referring to a file called 'numbers.txt' which has the following contents:
+\begin{verbatim}
+The following is a list of numbers:
+1
+1.5
+3.0
+
+-5
+\end{verbatim}
+\vspace{-0.8cm}
+\subsection{Reading from a File}
+\textbf{Starter File Reading Methods}
+\begin{center}
+\begin{tabular}{c|c}
+    Methods & Descriptions\\
+    \hline
+    .read() &  Returns contents of file as a sting\\
+    .readline() & Returns current line of a readable file as a string\\
+    .readlines() & Returns all lines of a readable file as a list of strings\\
+\end{tabular}
+\end{center}
+\vspace{0.3cm}
+\textbf{Example}
+
+\begin{verbatim}
+    def read_numbers(filename):
+        with open(filename, 'r') as infile:
+            infile.readline()   # read header line
+            numbers_list = []
+
+            for line in infile:
+                if line.strip() != "":
+                    numbers_list.append(line.strip())    
+        return numbers_list
+        
+    print(read_numbers('numbers.txt'))
+\end{verbatim}
+
+Note: The method .strip() was used to strip each line from new line characters, as well as leading and trailing white spaces.
+\\[0.35cm]
+\textbf{Output}
+\begin{center}
+    ['1', '1.5', '3.0', '-5']
+\end{center}
+
+
+
+\subsection{Writing to a File}
+When you write to a file, may content originally existing within the file gets overwritten. If this is not the intended outcome, you can append to the file by passing 'a' in the open statement, or you can determine the last line in the file and begin writing from there. It is also important to note that when writing to a file, newline characters must be explicitly included in the string statements.
+
+\subsubsection{Overwriting Example:}
+\begin{verbatim}
+numbers_list = [10, -5.5, 3.14]
+filename = 'numbers.txt'
+
+with open(filename, 'w') as outfile:
+    for number in numbers_list:
+        outfile.write(f'{number}\n')  # add newline character after each number
+\end{verbatim}
+
+\textbf{Output:}
+\begin{verbatim}
+10
+-5.5
+3.14
+10000000000.0
+\end{verbatim}
+
+\subsubsection{Appending Example:}
+\begin{verbatim}
+numbers_list = [10, -5.5]
+filename = 'numbers.txt'
+
+with open(filename, 'a') as outfile:
+    for number in numbers_list:
+        outfile.write(f'{number}\n')
+\end{verbatim}
+
+\textbf{Output:}\\
+1\\
+1.5\\
+3.0\\
+\\[0.2cm]
+-5\\
+10\\
+-5.5
+
+\subsubsection{Using 'w' Without Overwriting}
+You have to read the file contents, and re-write them as well as write your desired additional text.
+\begin{verbatim}
+    numbers_list = [10, -5.5]
+    filename = 'numbers.txt'
+    
+    with open(filename, 'r') as infile:
+        original_content = infile.readlines()
+    with open(filename, 'w') as outfile:
+        outfile.writelines(original_content)
+        for number in numbers_list:
+            outfile.write(f'{number}\n')
+\end{verbatim}
+
+\textbf{Output:} Same as the example above.
+

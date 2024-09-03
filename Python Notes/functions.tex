@@ -1,0 +1,76 @@
+\subsection{Function Parameters}
+\begin{itemize}
+    \item \textbf{Argument} is the value that you pass into a function
+    \item \textbf{Parameter} is the variable that the argument is stored in
+\end{itemize}
+
+\textbf{Default Values}
+A function's arguments can have default values. You use the "=" operator to assign a default value to an argument, which makes passing that parameter to the function optional.
+\begin{itemize}
+    \item If a function is called without an argument, then the default argument is used
+    \item If a function accepts 3 parameters, and of those, 2 are default, then 1 argument must be passed in, and the other 2 are optional.
+    \begin{itemize}
+        \item If you wish to pass in optional arguments, you must use a keyword to specify which parameter the argument belongs to.\\
+        Note: This is not necessary if you are passing in arguments in the order that they are accepted in.
+    \end{itemize}
+\end{itemize}
+Once a function returns, the value stored in the parameter is forgotten.\\
+The print() function also contains optional parameters 'end' and 'sep' to specify what should be printed after the argument:
+\begin{itemize}
+    \item print() adds a new line character at the end of it's argument, but this can be bypassed by including passing in an argument $end = ''$ .
+    \item You can use the $sep=','$ argument to separate the strings passed into the print function.
+\end{itemize}
+
+\subsection{Return Values}
+The return statement is the final and terminating execution of a function
+\begin{itemize}
+    \item If a value is returned, this value is passed back to the orginal function call statement
+    \item If no value is specified for return, the 'None' value is returned
+\end{itemize}
+
+
+\subsection{Local and Global Scope}
+Parameters and variables assigned in a function are in that function's\textit{local scope}, such variable is called a \textit{local variable}. Variables assigned outside all functions exist in the \textit{global scope}.
+\begin{itemize}
+    \item As mentioned previously, when a function returns, all variables assigned within it (local variables) are forgotten.
+    \item Variables in different scopes can have the same name as they are able to store different values within their scopes.
+\end{itemize}
+Global variables can be used in the local scope, although the reverse is not true.\\
+If you would like to use/alter a global variable within a local scope, declare the global statement: $global varname$ within the function. The program will now know that varname refers to the global variable, and there is no need to create a new local variable with that name.
+
+\subsection{Packing and Unpacking Sequences}
+\textbf{Automatic Packing}\\
+If a series is comma-separated, then it automatically gets formatted to a tuple when assigned.
+\[even = 2,4,6 \iff even = (2,4,6)\]
+
+Although you cannot have more than one return statement in a function (unless through the use of logic statements), you can return more than one value within the same return statement:
+\[return \hspace{0.1cm}x,y\]
+This will return a tuple with the values of x and y as items.
+\\[0.35cm]
+\textbf{Automatic Unpacking}\\
+Python can also automatically unpack iterable objects (lists, tuples, etc).
+\[even = 2,4,6\]
+This can also be used with loops:
+\begin{center}
+    \begin{verbatim}
+        for x,y in [(1,3), (7,8)]
+        for k,v in animals.items()
+    \end{verbatim}
+\end{center}
+The first loop will assign x and y to each value within the tuple.
+The second loop will iterate over the key and value of the animals dictionary items.
+
+\subsubsection{Simultaneous Assignment}
+\[x,y,z = [1,2,3]\]
+\[x = 1\]
+\[y = 2\]
+\[z = 3\]
+
+This feature is especially useful for variable swapping:
+\[x,y = y,x\]
+
+The variable 'x' will be assigned to the old value of y, and the variable 'y' will be assigned to the old value of x.\\
+This swapping method is more efficient than the following:
+\[temp = x\]
+\[x= y\]
+\[y= temp\]

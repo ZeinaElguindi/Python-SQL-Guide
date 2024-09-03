@@ -1,0 +1,107 @@
+\subsection{Classes Overview}
+A class serves as a user-defined template used to create objects.
+A class has defined attributes and methods (functions) that its created objects will have.
+\begin{itemize}
+    \item Provides a set of behaviors for instances of the class (objects) to follow
+    \item Defines the properties of the class's objects
+\end{itemize}
+
+
+\subsection{Components of a Class}
+\label{sec: class components}
+\textbf{Attributes}\\
+Attributes are variables/properties of the class or its instances.\\
+For example, a 'Student' class may have attributes of name, year and program
+\begin{verbatim}
+    student.name = Jack Hemington
+    student.year = 4
+    student.program = Economics
+\end{verbatim}
+
+\textbf{Methods}\\
+Methods are defined functions/behaviors that objects in the class can perform.
+For example, the 'Student' class may have a method called study, which makes the student study.
+\begin{verbatim}
+    def study(self):
+        print(f'{self.name} is now studying!')
+\end{verbatim}
+
+\textbf{Constructor Method}\\
+The constructor method instantiates an object, a.k.a, it initializes the attributes of the class.\\
+When a new instance of the class (object) is created, the constructor method is automatically called to assign the arguments and return an initialized object.
+\begin{verbatim}
+    class Student:
+    def __init__(self, name, year, program):
+        self.name = name
+        self.year = year
+        self.program = program
+
+    student1 = Student('Jack Hemington', 4, 'Econonomics')
+\end{verbatim}
+
+\subsection{Creating a Class}
+\textbf{Defining a Class}
+\begin{itemize}
+    \item Define the class
+    \item Set up the constructor method and attributes
+    \item Define a method for the class
+\end{itemize}
+
+Example:
+\begin{verbatim}
+    class Student:
+        def __init__(self, name, year, program):
+        self.name = name
+        self.year = year
+        self.program = program
+
+        def study(self):
+            print(f'{self.name} is now studying!')
+\end{verbatim}
+\vspace{0.3cm}
+\textbf{Instantiating a Class}
+To create an object/instance of the class, you call the class as if it were a function, with the necessary values to pass in.
+Example:
+\begin{verbatim}
+    student1 = Student('Jack Hemington', '4', 'Economics')
+\end{verbatim}
+The constructor method will then be called to initialize this object.
+\\[0.5cm]
+\textbf{Accessing Attributes and Methods}\\
+\textbf{\textcolor{gray}{Accessing Attributes:}}\\
+\begin{center}
+    objectName.attributeName
+\end{center}
+
+\textbf{\textcolor{gray}{Accessing Methods:}}
+\begin{center}
+    objectName.methodName
+\end{center}
+\subsection{Complete Example:}
+\begin{verbatim}
+    class Student:  # define the class
+
+        def __init__(self, name, year, program):  # define constructor method
+            self.name = name
+            self.year = year
+            self.program = program
+    
+        def study(self):   # define method
+            return f'{self.name} is now studying!' # access attribute
+
+    # create instances of the 'Student' class
+    student1 = Student("Andy", 4, "Arts and Literature")
+    student2 = Student("Ben", 3, "Marketing")
+
+    # call method and access attributes
+    print(student1.study())   # calls 'study' method
+    print(student1.program)   # output: "Arts and Literature"
+    print(student2.year)      # output: 3
+    
+\end{verbatim}
+
+\subsection{Purpose of "Self"}
+The self parameter is used to access variables that belong to the class. 
+\begin{itemize}
+    \item It must be the first parameter in any methods defined within the class.
+\end{itemize}

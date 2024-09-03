@@ -1,0 +1,14 @@
+
+\subsection{Where Clause}
+The \textcolor{textgray}{\textbf{WHERE}} clause filters the returned results. It uses logic to include/exclude certain columns, based on a comparison statement(s) a.k.a predicates.
+\begin{itemize}
+    \item The comparison statements must correctly reference the SQL data types \textcolor{darkgray}{(chapter: \ref{sec: data types})}.
+    \item This clause must immediately follow the \textcolor{textgray}{\textbf{FROM}} clause.
+\end{itemize}
+
+\subsection{Limit Clause}
+The \textcolor{textgray}{\textbf{LIMIT}} clause limits the number of rows returned. You can include an optional clause, \textcolor{textgray}{\textbf{OFFSET}}, that will skip the offset number of rows before returning.
+
+\subsection{Having Clause}
+\label{sec: having clause}
+The \textcolor{textgray}{\textbf{HAVING}} clause serves the same purpose as the \textcolor{textgray}{\textbf{WHERE}} clause, although the latter cannot perform conditions on rows after they are grouped.

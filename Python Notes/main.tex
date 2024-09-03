@@ -1,0 +1,55 @@
+\documentclass[titlepage]{article}
+\usepackage{titlesec}
+\usepackage{xcolor}
+% \usepackage[margin=1.2in]{geometry}
+\usepackage[left=1.2in, right=1.2in, bottom=1.2in, top=1in]{geometry}
+\setlength{\parindent}{0pt}
+
+\usepackage{minted}
+\setminted{bgcolor=shadedgray}
+\definecolor{shadedgray}{gray}{0.970}
+
+\titlespacing*{\section}
+{0pt}{0ex}{2ex}
+
+\titlespacing*{\subsection}
+{0pt}{6ex}{2ex}
+
+\title{Python Basics}
+\author{Zeina Elguindi}
+\date{2024}
+
+\begin{document}
+\maketitle
+
+
+\tableofcontents
+\newpage
+
+\section{Basic Data Types}
+\input{data-types}
+
+\newpage
+
+\section{Functions}
+\input{functions}
+
+\newpage
+\section{Classes and Instantiation}
+\input{classes}
+
+\newpage
+\section{Exception Handling}
+\input{exception-handling}
+
+
+\newpage
+\section{Text File Handling}
+\input{text-file-handling}
+
+\newpage
+\section{Pandas Library}
+\input{pandas}
+
+\end{document}
+

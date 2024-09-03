@@ -1,0 +1,54 @@
+
+\subsection{Ordering Rows}
+"ORDER BY" keyword sorts the rows returned by \textcolor{textgray}{\textbf{SELECT}} clause in either ascending or descending order.
+
+
+You can also sort rows by giving sortation priorities to specific columns. The following will sort column\_1 in an ascending order, and then column\_1 in descending order.
+
+\begin{minted}[bgcolor=shadedgray]{sql}
+ORDER BY 
+    column_1 ASC, 
+    column_2 DESC;
+\end{minted}
+
+\subsection{Grouping Rows}
+\label{sec: group by}
+The "GROUP BY" keyword groups rows based on the values of 1 or more columns.
+\begin{itemize}
+    \item This is useful for aggregating data by grouping rows that share common values.
+\end{itemize}
+
+The following query counts the number of records for each Pet and Breed in vet\_table. The \textcolor{textgray}{\textbf{GROUP BY}} clause aggregates the count in the 'Total' column. 
+\begin{center}
+\begin{minipage}{0.45\textwidth}
+    \centering
+    \begin{tabular}{c|c|c}
+     Pet&Breed&VisitReason  \\
+     \hline
+     Cat&Siamese& Check-up\\
+     Cat&Siamese& Vaccination\\
+     Dog & Poodle & Check-up
+    \end{tabular}
+    \captionof{table}{vet\_table}
+\end{minipage}
+\hspace{0.05\textwidth} % Space between the minipages
+\begin{minipage}{0.45\textwidth}
+    \centering
+    \begin{tabular}{|c|c|c|}
+    \hline
+    Pet & Breed & Total \\
+    \hline
+    Dog & Poodle & 1 \\
+    Cat & Siamese & 2 \\
+    \hline
+    \end{tabular}
+    \captionof{table}{Query Result}
+\end{minipage}
+\end{center}
+\begin{minted}[bgcolor=shadedgray]{sql}
+    SELECT Pet, Breed, COUNT(*) AS Total
+    FROM vet_table
+    GROUP BY Pet, Breed
+    ORDER BY Pet DESC;
+\end{minted}
+You can now use \textcolor{textgray}{\textbf{HAVING}} to place conditions on the aggregate function 'COUNT(*)' \textcolor{darkgray}{(\ref{sec: having clause})}.

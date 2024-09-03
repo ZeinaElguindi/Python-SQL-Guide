@@ -1,0 +1,52 @@
+\subsection{Preparatory Information}
+\textbf{Starter Data Types}
+\label{sec: data types}
+\begin{center}
+    \begin{tabular}{c|c}
+       Data Type  &  Format\\
+       \hline
+         Numeric& Positive/Negative Integers and Floats\\
+         Non-numeric & Must be Enclosed In Quotations\\
+         Date & 'yyyy-mm-dd'\\
+    \end{tabular}
+\end{center}
+
+
+\textbf{Comparison Operators}
+\begin{center}
+    \begin{tabular}{c|c}
+        Operator & Description \\
+        \hline
+        = & Equal to\\
+        \textless\textgreater & Not equal to\\
+        \textless& Less than\\
+        \textless= & Less than or equal to\\
+        \textgreater & Greater than\\
+        \textgreater= & Greater than or equal to\\
+        
+    \end{tabular}
+\end{center}
+\subsection{Select Clause}
+The \textcolor{textgray}{\textbf{SELECT}} clause selects and returns data from one or more tables. It must be accompanied by a \textcolor{textgray}{\textbf{FROM}} statement, indicating which table(s) to query from. All SQL queries must have these 2 statements.
+\subsubsection{Selecting Columns}
+\textbf{Select All Columns:} Use keyword "ALL" or "*" in the clause.\\[0.35cm]
+\textbf{Select Specific Columns:} Specify comma-separated list of columns to pull in the clause.\\[0.35cm]
+\textbf{Simultaneous Calculations:} You can perform operations on columns as you query them
+\begin{itemize}
+    \item You can assign an alias to this column, this will change the column name to the alias name in the output. Otherwise, the new column will have its original name.
+\end{itemize}
+
+\begin{minted}[bgcolor=shadedgray]{sql}
+SELECT employee_name, employee_ID, employee_salary * 1.05 AS new_salary
+FROM employees; 
+\end{minted}
+\
+
+\subsubsection{Selecting Rows}
+\textbf{Select Without Duplicates:} Use the "DISTINCT" keyword after your \textcolor{textgray}{\textbf{SELECT}} statement to avoid outputting any duplicate rows.
+\begin{itemize}
+    \item If you select multiple columns, \textcolor{textgray}{\textbf{DISTINCT}} will evaluate a combination of the column values to determine duplicates. If you want to select multiple columns, but only remove duplicates from one column, use the \textcolor{textgray}{\textbf{GROUP BY}} clause (\ref{sec: group by}).
+\end{itemize}
+
+
+

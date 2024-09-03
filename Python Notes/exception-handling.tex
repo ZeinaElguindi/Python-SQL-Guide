@@ -1,0 +1,52 @@
+\subsection{Raising an Exception}
+You can raise exceptions to validate user input or parameter types.\\
+Checking the validity of a parameter for a division function may look like the following:
+\begin{verbatim}
+    def divide(dividend, divisor):
+        if divisor == 0:
+            raise ValueError("Divisor cannot be zero.")
+        return dividend / divisor
+\end{verbatim}
+
+When an exception is raised, a new instance of the Error class is created, with the error message serving as a parameter for the constructor \textcolor{darkgray}{(chapter: \ref{sec: class components} for more details)}.
+
+You can raise built-in exceptions such as 'ValueError' or 'TypeError', or you can raise an exception from a custom exception class.
+\begin{verbatim}
+    class CustomError(message):
+        def __init__(self, message):   # constructor method
+            self.message = message
+            super().__init__(self.message)  # calls constructor of Exception class
+    def sqrt(x):
+        if x < 0:
+            raise CustomerError ('x must be greater than 0.')
+    try:
+        print(sqrt(-3))
+    except CustomError as error:
+        print(f'Error: {error}
+\end{verbatim}
+
+\subsection{Catching an Exception}
+To avoid the chances of an exception being raised, put code that may have an error in a \textit{try} clause. Once an error is detected, the program will move to the \textit{except} clause.
+\begin{itemize}
+    \item The program will move to the except clause once an error is raise, and it will not return to the try clause.
+\end{itemize}
+
+\begin{verbatim}
+    try:
+        file = open('sample_file.txt')
+    except IOError:
+        print('Invalid file path')
+\end{verbatim}
+
+\subsubsection{Example:}
+\begin{verbatim}
+    def divide(divisor):
+        try:
+            return 30/divisor
+        except ZeroDivisionError:
+            return 'Division by 0 is not possible.'
+    print(divide(3))  # output: 10
+    print(divide(0))  # output: 'Division by 0 is not possible.'
+    print(divide(10)) # output: 3
+\end{verbatim}
+Note: In this case, the final line gets executed, although if the \textit{try} clause was surrounding the print statements, '3' would not be outputted as the program will move to the \textit{except} clause and not return.

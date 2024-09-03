@@ -1,0 +1,58 @@
+The parameters of statistical functions must be a single column or expression.\\
+The output of these functions is a single column per function.\\
+You can rename the outputted column by using an alias.
+
+
+Note: To filter for columns with an aggregate function applied, you must use the \textcolor{textgray}{\textbf{HAVING}} clause \textcolor{darkgray}{(\ref{sec: having clause})}.
+
+\subsection{Count}
+\begin{center}
+    \begin{tabular}{c|c}
+        Parameter & Description \\
+        \hline
+        COUNT $(*)$ & Count all rows in the table\\
+        COUNT $(column\_name)$ & Count all non-null rows in the column\\
+        COUNT $(DISTINCT \hspace{0.15cm}column\_name)$ & Count unique values in the column, excluding NULL rows.
+        \\[0.45cm]
+
+    \end{tabular}
+\end{center}
+
+Using the \textcolor{textgray}{\textbf{GROUP BY}} clause is especially useful when paired with the COUNT function:\\[0.3cm]
+From \textcolor{darkgray}{(\ref{sec: group by})}, we can see that a 'Total' column returned (using the count function), containing the count of each Pet and Breed combination.\\[0.3cm]
+Note: It is required to have any non-aggregate function stated within the \textcolor{textgray}{\textbf{SELECT}} statement to be stated within the \textcolor{textgray}{\textbf{GROUP BY}} statement
+
+
+\subsection{Avg \& Sum}
+The \textbf{AVG()} function calculates and returns the average value or a set/column.
+
+\begin{center}
+    AVG ([ALL | DiSTINCT] expression)
+\end{center}
+
+
+The \textbf{SUM()} function calculates and returns the average value or a set/column.
+
+\begin{center}
+    SUM ([ALL | DiSTINCT] expression)
+\end{center}
+
+By default, AVG() and SUM() calculate using all values in the column, although, using the DISTINCT keyword would result in the calculation of unique values only.\\
+The values within the column \textbf{must} be numeric.
+
+
+\subsection{Max \& Min}
+The \textbf{MAX()} function returns the maximum value of a set/column.
+
+\begin{center}
+    MAX (expression)
+\end{center}
+
+The \textbf{MIN()} function returns the minimum value of a set/column.
+
+\begin{center}
+    MIN (expression)
+\end{center}
+
+The \textcolor{textgray}{\textbf{DISTINCT}} option is not available for MAX and MIN functions.
+

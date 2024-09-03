@@ -1,0 +1,216 @@
+\subsection{Overview}
+
+
+\begin{center}
+\begin{tabular}{c|c}
+    \textbf{Class} & \textbf{Description} \\
+    \hline 
+    bool  & Boolean value \\
+   \hline
+   int & Integer value \\
+   \hline
+   float & Floating point number \\
+   \hline
+   str & Text String \\
+   \hline
+   list & Mutable sequence of objects \\
+   \hline
+   tuple & Immutable sequence of objects \\
+   \hline
+   dict & Dictionary \\
+\end{tabular}
+\end{center}
+
+
+
+\subsection{Bool}
+The bool class is used to manipulate logic. There are only 2 instances of this class; True or False.
+\vspace{1em}
+\begin{center}
+\begin{tabular}{c|c}
+   \textbf{Input}  & \textbf{bool Return}\\
+   \hline
+   0 or 0.0  & False\\
+   number $\neq$ 0 or 0.0 & True\\
+   "" or '' & False\\
+   empty list/tuple & False\\
+   non-empty list/tuple & True\\
+\end{tabular}
+\end{center}
+
+
+\subsection{Strings}
+\subsubsection{String Concatenation \& Replication}
+String \textbf{concatenation} joins 2 or more strings together:
+\["Zeina" + "Elguindi" \rightarrow "ZeinaElguindi"\]
+String \textbf{replication} duplicates a string 2 or more times:
+\[ "ZeinaElguindi"*2 \rightarrow "ZeinaElguindiZeinaElguindi"\]
+
+\subsubsection{String Formatting}
+\begin{center}
+    \begin{tabular}{c|c}
+    Escape Character & Ouput  \\
+    \hline
+    $\backslash$' & Single quotation mark \\
+    $\backslash$" & Double quotation mark\\
+    $\backslash$n & New line\\
+    $\backslash\backslash$ & Single backslash\\
+    \end{tabular}
+\end{center}
+
+Alternatively, a raw string will ignore all escape characters:
+\[print(r'Zeina Elguindi\backslash's') \rightarrow \hspace{0.15cm} 'Zeina Elguindi\backslash's'\]
+
+\subsubsection{String Manipulation: Indexing \& Slicing}
+\textbf{String Indexing}
+\begin{center}
+    \begin{tabular}{ccccc}
+        h & e & l & l & o \\
+        \hline
+        0 & 1 & 2 & 3 & 4 \\
+        -5 & -4 & -3 & -2 & -1 \\
+    \end{tabular}
+\end{center}
+
+\begin{center}
+    alpha = hello\\[0.25cm]
+    alpha[0] $\rightarrow$'h'\\[0.25cm]
+    alpha[4] $\rightarrow$ 'o'\\[0.25cm]
+    alpha[-5] $\rightarrow$ 'h'\\[0.25cm]
+\end{center}
+\textbf{String Slicing}
+
+String slicing allows you to generate a sub string from any given string.
+\textbf{\[str[start:stop:step]\]}
+\begin{center}
+start: inclusive \hspace{0.5cm} stop: exclusive \hspace{0.5cm} step: optional\\
+\end{center}
+\begin{center}
+   alpha[:5] $\rightarrow$ 'hello' \\[0.25cm]
+   alpha[1:4] $\rightarrow$ 'ell'\\[0.25cm]
+   alpha[-2:] $\rightarrow$  'lo'\\[0.25cm]
+   alpha[:] $\rightarrow$' hello'
+\end{center}
+
+\subsubsection{String Methods}
+\begin{center}
+\begin{tabular}{c|c}
+    Basic Methods & Descriptions\\
+    \hline
+    .isupper() &  Converts string to uppercase\\
+    .islower() & Converts string to lowercase\\
+    .isalpha() & Returns True if string consists of letters only\\
+    .isdecimal() & Returns True if string contains numbers only\\
+    .isalphanum() & Returns True if string only contains numbers and letters\\
+    .strip() & Returns a string with without leading/trailing whitespaces\\
+\end{tabular}
+\end{center}
+
+\vspace{.5cm}
+\textbf{.join() Method}
+
+The .join() method is passed a list of strings which it will join using the string it is called upon.
+\['\hspace{0.1cm}'.join(['alpha','beta','gamma']) \rightarrow \hspace{0.15cm} 'alpha \hspace{0.1cm} beta \hspace{0.1cm} gamma'\]
+\[',\hspace{0.1cm}'.join(['alpha','beta','gamma']) \rightarrow \hspace{0.15cm} 'alpha,\hspace{0.1cm}beta,\hspace{0.1cm}gamma\]
+
+\vspace{.5cm}
+\textbf{.split() Method}
+
+The .split() method is passed a string value, which it will use to split up the string it is called upon. Essentially the opposite of .join() method.
+\begin{center}
+    ('Zeina Elguindi').split() $\rightarrow$ ['Zeina', 'Elguindi']\\
+\end{center}
+\begin{center}
+    ('zeina elguindi').split('e') $\rightarrow$ ['z','eina','elguindi']
+\end{center}
+
+\newpage
+\subsection{Lists}
+Lists are mutable sequences of objects, meaning the list elements can be changed. A list can contain more lists within it, and a list can contain a combination of different data types.
+
+\subsubsection{List Concatenation \& Replication}
+\[[1,2,3] + ['a','b'] \rightarrow \hspace{0.15cm} [1,2,3,a,b]\]
+\[[1,2,3] *2 \rightarrow \hspace{0.15cm} [1,2,3,1,2,3]\]
+
+\subsubsection{List Manipulation: Indexing \& Slicing}
+\textbf{List Indexing}
+\begin{center}
+    \begin{tabular}{ c c c }
+        ['cat', & 'dog', & 'mouse']  \\
+        \hline
+        0 & 1 & 2 \\
+        -3 & -2 & -1 \\
+    \end{tabular}
+\end{center}
+
+\[animals = ['cat', 'dog', 'mouse']\]
+\[animals[0] \rightarrow \hspace{0.15cm}'cat'\]
+\[animals[-2] \rightarrow \hspace{0.15cm}'dog'\]
+\[animals[-5] \rightarrow \hspace{0.15cm} error\]
+\[print('Hi' + animals[1]) \rightarrow \hspace{0.15cm} 'Hi \hspace{0.1cm} cat'\]
+
+\textbf{List Slicing}
+\[animals[:2] \rightarrow \hspace{0.15cm}['cat', 'dog']\]
+\[animals[0:-2] \rightarrow \hspace{0.15cm}['cat']\]
+\[animals[-2:] \rightarrow \hspace{0.15cm} ['dog']\]
+\[animals[:] \rightarrow \hspace{0.15cm} ['cat', 'dog', 'mouse']\]
+
+\subsubsection{Element Assignment}
+You can manipulate single list elements by doing the following:
+\[animals[0] = 'hamster' \rightarrow \hspace{0.15cm} animals = ['hamster','dog','mouse'\]
+\[animals[1] = animals[0] \rightarrow \hspace{0.15cm} animals=['hamster', 'hamster','mouse']\]
+
+\textbf{Multiple Variable Assignment}
+You can assign a variable to each element in the list by doing the following:
+\[course = ['MSE 111', 'D. Walter', 'Medium']\]
+\[class,professor,difficulty = course\]
+
+Note: The number of variables must be equal to the length of the list (len(course) = 3, therefore 3 variables must be assigned)
+
+\newpage
+\subsubsection{List Methods}
+\[animals = ['cat', 'dog', 'mouse']\]
+
+\textbf{.index(list item)} returns the index value of the element within the list. If there are duplicate elements, only the index of the first element will be returned.
+\begin{itemize}
+    \item animals.index('dog') returns 1
+\end{itemize}
+\vspace{0.2cm}
+
+\textbf{.append(new item)} appends a new element to the end of the list
+Note: If you want to choose where the element gets added, use \textbf{.insert(index, new item)}.
+\begin{itemize}
+    \item animals.append('t-rex') would mean animals = ['cat','dog','mouse','t-rex']
+\end{itemize}
+These methods modify the list in place, therefore, you do not need to re-assign the return value.\\
+
+
+\textbf{.remove(list item)} removes the passed in list item
+\begin{itemize}
+    \item animals.remove('t-rex') would mean animals = ['cat','dog','mouse']
+\end{itemize}
+
+\vspace{0.2cm}
+\textbf{.sort()} sorts the list alphabetically or numerically
+\begin{itemize}
+    \item .sort() sorts the list in an ascending order
+    \item .sort(reverse=True) sorts the list in a descending order
+\end{itemize}
+Sort method cannot be used on lists containing elements with different data types.
+
+\subsection{Dictionaries}
+Dictionaries are similar to lists as they can store many values with a variety of data types. In a dictionary, the 'index' is called a 'key' and it can be of any data type, unlike a list's index. The value associated with the key is called a 'value' and together, they are the \textit{key-value pair}.\\
+
+\[birthdays = \{'Jack': 'Apr 1', 'Ben': 'May 21', 'Will': Nov 3\}\]
+In this example, the name is the key/identifier (it replaces the integer index as exists with lists), and the birthday is value associated to the key.
+
+\[birthdays['Ben'] \rightarrow \hspace{0.15cm} 'May21'\]
+To set a new pair in the dictionary, set a value to a new key. The following example adds Frank and his birthday to the dictionary:
+\[birthdays['Frank'] \rightarrow \hspace{0.15cm} 'Jan8'\]
+
+\subsubsection{Dictionary Methods}
+\textbf{dict.keys()} returns all the keys in the dictionary. Output data type: tuple.\\
+\textbf{dict.values()} returns all the values in the dictionary. Output data type: tuple.\\
+\textbf{dict.items()} returns all entries in the dictionary. Each pair is represented as a tuple within a list.
+\textbf{dict.get(key,fallback)} returns the value associated to the key, if it exists. If it doesn't exist, the fallback value is returned.
+
